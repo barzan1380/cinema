@@ -1,0 +1,9 @@
+{% extends 'parent/base.html' %}
+{% block content %}
+<div dir="rtl">
+    <h2>لسیت سینماها: </h2>
+{% for cinema in cinema %}
+    <li><a href="{% url 'app:list_movies_by_cinema' cinema.pk %}">{{ cinema.name }}</a></li>
+    {% endfor %}
+</div>
+{% endblock %}

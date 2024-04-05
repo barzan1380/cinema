@@ -1,0 +1,11 @@
+[
+  {
+  "model":"Movie", "pk":1, "fields": {
+    "id": 1,
+    "title": "Children of heaven",
+    "release_year": "1997",
+    "play_time": "2018/4/20 22:00"
+  }
+}
+
+]

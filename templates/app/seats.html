@@ -1,0 +1,36 @@
+{% extends 'parent/base.html' %}
+{% block title %} movie_detail {% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+    توضیحات:
+{{movie.description}}<br>
+    تاریخ پخش:
+    {{movie.play_time}}
+<h3>Seats available for this movie:</h3>
+<ul>
+    {% if seats.count == 0 %}
+        <li>sold out!</li>
+    {% endif %}
+    {% for seat in seats %}
+        <li><a href="{% url 'app:reserve_seat' movie.id seat.id %}">Seat {{ seat.number }}</a></li>
+    {% endfor %}
+</ul>
+
+<h2>comments</h2>
+{% for comment in comments%}
+    {{comment.name}}: {{ comment.body }}<br>
+    {% for response in comment.comment_responses.all %}
+        <p>{{response.name}}: {{response.body }}</p>
+    {% endfor %}
+{% endfor %}
+<form method="post" action="{% url 'app:movie_comment' movie.id %}">
+  <h2> comment-form</h2>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="send" name="comment">
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'parent/base.html' %}
+{% load app_tags %}
+{% block title %} Index {% endblock %}
+{% block content %}
+    <h2>index</h2>
+    <div dir="rtl">
+        <div>
+            <a href="{% url 'app:cinema_list' %}"><h3>لیست سینما ها:</h3></a>
+        </div>
+        <div>
+            <h3>جدیدترین فیلم ها:</h3>
+            {% new_film %}
+        </div>
+        <div>
+            <h3>محبوب ترین فیلم ها:</h3>
+            {% popular_movies %}
+        </div>
+        <div>
+            <h3>پرفروش ترین فیلم های اخیر:</h3>
+            {% most_selling %}
+        </div>
+    </div>
+    <div>
+        <h3> دسته بندی:</h3>
+        <a href="{% url 'app:list_movies_by_category' 'طنز' %}">طنز</a><br>
+        <a href="{% url 'app:list_movies_by_category' 'عاشقانه' %}">عاشقانه</a><br>
+        <a href="{% url 'app:list_movies_by_category' 'خشن' %}">خشن</a><br>
+        <a href="{% url 'app:list_movies_by_category' 'انیمیشن' %}">انیمیشن</a><br>
+        <a href="{% url 'app:list_movies_by_category' 'سایر' %}">سایر</a><br>
+    </div>
+{% endblock %}

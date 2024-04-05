@@ -1,0 +1,9 @@
+{% extends 'parent/base.html' %}
+{% block content %}
+<h2> Ticket detail </h2>
+  <span> {{ ticket.movie.title }}</span><br>
+  <span> {{ticket.movie.release_year}} </span><br>
+  <span> {{ ticket.movie.play_time }} </span><br>
+  <span> </span>
+  <span> {{ ticket.seat }}</span>
+{% endblock %}

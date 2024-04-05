@@ -1,0 +1,21 @@
+{% extends 'parent/base.html' %}
+{% block title %} movies {% endblock %}
+{% block content %}
+<h3>All movies:</h3>
+{% if  cinema and movies %}
+   <h3>فیلم های موجود برای سینما {{cinema}}</h3>
+{% endif %}
+<ul>{% if  movies %}
+    {% for movie in movies %}
+        <li><a href="{% url 'app:list_seats' movie.id %}">{{ movie.title }}</a></li>
+            {% if movie.pop %}
+                <img src="{{ movie.image.url }}">
+            {% endif %}
+    {% endfor %}
+    {% elif category %}
+         <p>فیلمی برای دسته بندی {{category}} موجود نمیباشد</p>
+    {% else %}
+        <p>فیلمی موجود نمیباشد</p>
+    {% endif %}
+</ul>
+{% endblock %}

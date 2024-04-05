@@ -1,0 +1,12 @@
+{% extends 'parent/base.html' %}
+{% block content %}
+<h2> response to your ticket: </h2>
+<div dir="">
+    {% for ticket in tickets %}
+        <p> your ticket: {{ ticket.body }}</p><br>
+        {% for response in ticket.check_responses.all %}
+            <p> response: {{ response.body }} </p><br>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

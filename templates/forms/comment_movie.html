@@ -1,0 +1,6 @@
+<form method="post">
+  <h2> comment-form</h2>
+  {% csrf_token %}
+  {% form.as_p%}
+  <input type="submit" value="comment" name="comment">
+</form>

@@ -1,0 +1,11 @@
+{% extends 'parent/base.html' %}
+{% block content %}
+<form dir="rtl">
+    <h2> profile </h2>
+    <h3> عزیز{{ user.first_name }}</h3>
+    <h4>بلیط های شما: </h4>
+    {% for ticket in tickets %}
+        <a href="{% url 'app:ticket_detail' ticket.id %}"> {{ ticket.movie.title }} ({{ ticket.seat}}) </a><br>
+    {% endfor %}
+</form>
+{% endblock %}
